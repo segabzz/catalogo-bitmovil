@@ -1,0 +1,25 @@
+# Logs
+*.log
+actualizar_web.log
+sync_syscom.log
+
+# Archivos de entorno y credenciales sensibles
+config.env.local
+.env.local
+
+# Archivos temporales de Excel y Office
+~$*.xlsx
+*.tmp
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+env/
+venv/
+
+# Sistema operativo
+Thumbs.db
+Desktop.ini
+.DS_Store

@@ -17,6 +17,22 @@ def safe_filename(name):
     # Replace slashes with dashes to avoid filesystem issues
     return str(name).replace('/', '-')
 
+def normalizar_marca(marca_raw):
+    """Normaliza variantes de marcas a su nombre canónico oficial."""
+    m = str(marca_raw or '').strip()
+    upper = m.upper()
+    if upper.startswith('EPCOM') or 'BY EPCOM' in upper:
+        return 'EPCOM'
+    if upper.startswith('HONEYWELL'):
+        return 'HONEYWELL'
+    if upper.startswith('HILOOK') or upper == 'HILOOK':
+        return 'HILOOK'
+    if upper.startswith('LINKEDPRO'):
+        return 'LINKEDPRO'
+    if 'WESTERN DIGITAL' in upper or upper == 'WD':
+        return 'WESTERN DIGITAL'
+    return m
+
 def actualizar():
     logging.info("==================================================")
     logging.info("Iniciando actualización del catálogo web...")
@@ -53,7 +69,8 @@ def actualizar():
         
         for _, row in df_linea.iterrows():
             no_parte = str(row.get('No. de Parte', '')).strip()
-            marca = str(row.get('Marca', '')).strip()
+            marca_raw = str(row.get('Marca', '')).strip()
+            marca_norm = normalizar_marca(marca_raw)
             descripcion = str(row.get('Descripción', '')).strip()
             
             s_name = safe_filename(no_parte)
@@ -77,7 +94,8 @@ def actualizar():
             productos_linea.append({
                 "no_parte": no_parte,
                 "safe_no_parte": s_name,
-                "marca": marca,
+                "marca": marca_raw,
+                "marca_normalizada": marca_norm,
                 "descripcion": descripcion,
                 "tiene_imagen": tiene_img,
                 "imagen_url": f"imagenes/{s_name}{img_ext}" if tiene_img else None,

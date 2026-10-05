@@ -3,1056 +3,155 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Catálogo y Asesor Técnico en Soluciones TI | BITMOVIL</title>
-    <meta name="description" content="Portafolio oficial de productos, cableado estructurado, videovigilancia y redes de BITMOVIL. Consulta fichas técnicas y recibe asesoría técnica en línea.">
-    
-    <style>
-        :root {
-            --primary: #1e3a8a;       /* Azul BITMOVIL */
-            --primary-hover: #172554;
-            --accent: #2563eb;
-            --secondary: #0f172a;     /* Azul noche */
-            --bg: #f8fafc;
-            --card-bg: #ffffff;
-            --text-main: #1e293b;
-            --text-light: #64748b;
-            --border: #e2e8f0;
-            --success: #10b981;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
-            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
-            --shadow-lg: 0 10px 25px -5px rgba(0,0,0,0.15);
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', system-ui, -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
-        }
-
-        body {
-            background-color: var(--bg);
-            color: var(--text-main);
-            display: flex;
-            flex-direction: column;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        /* HEADER */
-        header {
-            background-color: var(--secondary);
-            padding: 0.75rem 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-            box-shadow: var(--shadow-md);
-            z-index: 20;
-            flex-shrink: 0;
-        }
-
-        .header-left {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            background: none;
-            border: none;
-            color: white;
-            font-size: 1.5rem;
-            cursor: pointer;
-            padding: 0.25rem;
-        }
-
-        header img.logo {
-            height: 38px;
-            object-fit: contain;
-        }
-
-        .header-title-badge {
-            color: #93c5fd;
-            font-size: 0.85rem;
-            font-weight: 500;
-            background: rgba(30, 58, 138, 0.6);
-            padding: 0.25rem 0.6rem;
-            border-radius: 9999px;
-            border: 1px solid rgba(147, 197, 253, 0.3);
-            display: inline-block;
-        }
-
-        /* SEARCH BAR */
-        .search-container {
-            flex: 1;
-            max-width: 520px;
-            position: relative;
-        }
-
-        .search-input {
-            width: 100%;
-            padding: 0.6rem 1rem 0.6rem 2.4rem;
-            border-radius: 8px;
-            border: 1px solid #334155;
-            background: #1e293b;
-            color: white;
-            font-size: 0.9rem;
-            outline: none;
-            transition: all 0.2s;
-        }
-
-        .search-input:focus {
-            border-color: #60a5fa;
-            background: #0f172a;
-            box-shadow: 0 0 0 3px rgba(96, 165, 250, 0.2);
-        }
-
-        .search-icon {
-            position: absolute;
-            left: 0.8rem;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #94a3b8;
-            font-size: 0.9rem;
-            pointer-events: none;
-        }
-
-        .header-actions {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-        }
-
-        .btn-cotizar {
-            background-color: var(--accent);
-            color: white;
-            text-decoration: none;
-            padding: 0.5rem 1rem;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-            transition: background 0.2s;
-            white-space: nowrap;
-        }
-
-        .btn-cotizar:hover {
-            background-color: #1d4ed8;
-        }
-
-        /* LAYOUT */
-        .container {
-            display: flex;
-            flex: 1;
-            overflow: hidden;
-            position: relative;
-        }
-
-        /* SIDEBAR */
-        .sidebar {
-            width: 270px;
-            background-color: var(--card-bg);
-            border-right: 1px solid var(--border);
-            overflow-y: auto;
-            padding: 1rem 0;
-            flex-shrink: 0;
-            transition: transform 0.3s ease;
-            z-index: 15;
-        }
-
-        .sidebar-header {
-            padding: 0 1.25rem 0.75rem;
-            font-size: 0.75rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--text-light);
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 0.5rem;
-        }
-
-        .category-btn {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            width: 100%;
-            text-align: left;
-            padding: 0.7rem 1.25rem;
-            background: none;
-            border: none;
-            font-size: 0.9rem;
-            color: var(--text-main);
-            cursor: pointer;
-            transition: all 0.15s;
-            border-left: 3px solid transparent;
-        }
-
-        .category-btn:hover {
-            background-color: #f1f5f9;
-            color: var(--primary);
-        }
-
-        .category-btn.active {
-            background-color: #eff6ff;
-            color: var(--primary);
-            border-left-color: var(--primary);
-            font-weight: 600;
-        }
-
-        .category-badge {
-            background: #e2e8f0;
-            color: var(--text-light);
-            font-size: 0.75rem;
-            padding: 0.15rem 0.45rem;
-            border-radius: 9999px;
-            font-weight: normal;
-        }
-
-        .category-btn.active .category-badge {
-            background: #bfdbfe;
-            color: var(--primary);
-            font-weight: 600;
-        }
-
-        /* MAIN CONTENT */
-        .main-content {
-            flex: 1;
-            overflow-y: auto;
-            padding: 1.5rem 2rem;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .content-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-end;
-            margin-bottom: 1.25rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 2px solid var(--border);
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-
-        .category-title {
-            font-size: 1.6rem;
-            color: var(--secondary);
-            font-weight: 700;
-        }
-
-        .category-count {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            margin-top: 0.2rem;
-        }
-
-        .filter-pills {
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .pill-btn {
-            background: white;
-            border: 1px solid var(--border);
-            padding: 0.35rem 0.75rem;
-            border-radius: 6px;
-            font-size: 0.8rem;
-            cursor: pointer;
-            color: var(--text-light);
-            transition: all 0.15s;
-        }
-
-        .pill-btn.active, .pill-btn:hover {
-            border-color: var(--primary);
-            color: var(--primary);
-            background: #eff6ff;
-        }
-
-        /* GRID & CARDS */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.25rem;
-            padding-bottom: 3rem;
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
-            box-shadow: var(--shadow-sm);
-        }
-
-        .card:hover {
-            transform: translateY(-3px);
-            box-shadow: var(--shadow-lg);
-            border-color: #cbd5e1;
-        }
-
-        .card-img-container {
-            height: 190px;
-            background-color: #ffffff;
-            border-bottom: 1px solid #f1f5f9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 1rem;
-            position: relative;
-        }
-
-        .card-img-container img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-            transition: transform 0.2s;
-        }
-
-        .card:hover .card-img-container img {
-            transform: scale(1.04);
-        }
-
-        .no-img {
-            color: #94a3b8;
-            font-size: 0.85rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.4rem;
-        }
-
-        .card-body {
-            padding: 1.15rem;
-            display: flex;
-            flex-direction: column;
-            flex: 1;
-        }
-
-        .brand-badge {
-            align-self: flex-start;
-            font-size: 0.7rem;
-            text-transform: uppercase;
-            font-weight: 700;
-            letter-spacing: 0.05em;
-            color: #475569;
-            background: #f1f5f9;
-            padding: 0.2rem 0.5rem;
-            border-radius: 4px;
-            margin-bottom: 0.4rem;
-        }
-
-        .part-number {
-            font-size: 1.05rem;
-            font-weight: 700;
-            color: var(--primary);
-            margin-bottom: 0.5rem;
-            word-break: break-all;
-        }
-
-        .desc {
-            font-size: 0.85rem;
-            line-height: 1.45;
-            color: var(--text-main);
-            margin-bottom: 1.25rem;
-            flex: 1;
-        }
-
-        .card-actions {
-            display: flex;
-            flex-direction: column;
-            gap: 0.4rem;
-        }
-
-        .btn-ficha {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.4rem;
-            background-color: var(--primary);
-            color: white;
-            text-decoration: none;
-            padding: 0.55rem 0.85rem;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            font-weight: 600;
-            transition: background-color 0.2s;
-        }
-
-        .btn-ficha:hover {
-            background-color: var(--primary-hover);
-        }
-
-        .btn-disabled {
-            background-color: #f1f5f9;
-            color: #94a3b8;
-            border: 1px dashed #cbd5e1;
-            cursor: default;
-            pointer-events: none;
-        }
-
-        .btn-consultar-item {
-            background: none;
-            border: 1px solid #cbd5e1;
-            color: var(--text-light);
-            padding: 0.4rem 0.6rem;
-            border-radius: 6px;
-            font-size: 0.75rem;
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 0.3rem;
-            transition: all 0.15s;
-        }
-
-        .btn-consultar-item:hover {
-            border-color: var(--accent);
-            color: var(--accent);
-            background: #eff6ff;
-        }
-
-        /* CHATBOT WIDGET */
-        .chat-widget-btn {
-            position: fixed;
-            bottom: 1.5rem;
-            right: 1.5rem;
-            background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
-            color: white;
-            border: none;
-            border-radius: 9999px;
-            padding: 0.85rem 1.35rem;
-            font-size: 0.95rem;
-            font-weight: 600;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            cursor: pointer;
-            box-shadow: 0 10px 25px -3px rgba(37, 99, 235, 0.4);
-            z-index: 100;
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-
-        .chat-widget-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 14px 28px -3px rgba(37, 99, 235, 0.5);
-        }
-
-        .chat-widget-btn .pulse-dot {
-            width: 9px;
-            height: 9px;
-            background: #4ade80;
-            border-radius: 50%;
-            display: inline-block;
-            box-shadow: 0 0 0 2px rgba(255,255,255,0.4);
-        }
-
-        .chat-window {
-            position: fixed;
-            bottom: 5.5rem;
-            right: 1.5rem;
-            width: 380px;
-            height: 540px;
-            max-width: calc(100vw - 3rem);
-            max-height: calc(100vh - 7rem);
-            background: white;
-            border-radius: 14px;
-            box-shadow: var(--shadow-lg);
-            border: 1px solid var(--border);
-            display: none;
-            flex-direction: column;
-            overflow: hidden;
-            z-index: 101;
-            animation: slideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-
-        @keyframes slideUp {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .chat-header {
-            background: var(--secondary);
-            color: white;
-            padding: 0.9rem 1.15rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .chat-header-info {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-        }
-
-        .chat-avatar {
-            width: 34px;
-            height: 34px;
-            background: #1e3a8a;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.1rem;
-            border: 1px solid #3b82f6;
-        }
-
-        .chat-title {
-            font-size: 0.95rem;
-            font-weight: 700;
-        }
-
-        .chat-status {
-            font-size: 0.75rem;
-            color: #93c5fd;
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
-        }
-
-        .chat-close-btn {
-            background: none;
-            border: none;
-            color: #94a3b8;
-            font-size: 1.3rem;
-            cursor: pointer;
-            padding: 0.2rem;
-            line-height: 1;
-        }
-
-        .chat-close-btn:hover { color: white; }
-
-        .chat-messages {
-            flex: 1;
-            padding: 1rem;
-            overflow-y: auto;
-            background: #f8fafc;
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-
-        .message {
-            max-width: 85%;
-            padding: 0.65rem 0.9rem;
-            border-radius: 10px;
-            font-size: 0.85rem;
-            line-height: 1.45;
-        }
-
-        .bot-message {
-            align-self: flex-start;
-            background: white;
-            border: 1px solid var(--border);
-            color: var(--text-main);
-            border-bottom-left-radius: 2px;
-            box-shadow: 0 1px 2px rgba(0,0,0,0.04);
-        }
-
-        .user-message {
-            align-self: flex-end;
-            background: var(--primary);
-            color: white;
-            border-bottom-right-radius: 2px;
-        }
-
-        .chat-quick-pills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.35rem;
-            margin-top: 0.4rem;
-        }
-
-        .chat-pill {
-            background: #eff6ff;
-            border: 1px solid #bfdbfe;
-            color: var(--primary);
-            font-size: 0.72rem;
-            padding: 0.25rem 0.5rem;
-            border-radius: 9999px;
-            cursor: pointer;
-            transition: all 0.15s;
-        }
-
-        .chat-pill:hover {
-            background: var(--primary);
-            color: white;
-        }
-
-        .chat-rec-card {
-            background: #f1f5f9;
-            border-left: 3px solid var(--accent);
-            padding: 0.45rem 0.6rem;
-            margin-top: 0.4rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-        }
-
-        .chat-rec-title {
-            font-weight: 700;
-            color: var(--primary);
-        }
-
-        .chat-input-bar {
-            padding: 0.75rem;
-            background: white;
-            border-top: 1px solid var(--border);
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .chat-input-bar input {
-            flex: 1;
-            padding: 0.55rem 0.85rem;
-            border-radius: 6px;
-            border: 1px solid var(--border);
-            font-size: 0.85rem;
-            outline: none;
-        }
-
-        .chat-input-bar input:focus {
-            border-color: var(--accent);
-        }
-
-        .chat-send-btn {
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 6px;
-            padding: 0.55rem 0.9rem;
-            font-size: 0.9rem;
-            cursor: pointer;
-        }
-
-        .chat-send-btn:hover { background: var(--primary-hover); }
-
-        /* RESPONSIVE */
-        @media (max-width: 860px) {
-            .mobile-menu-btn { display: block; }
-            .header-title-badge { display: none; }
-            .sidebar {
-                position: absolute;
-                top: 0;
-                bottom: 0;
-                left: 0;
-                transform: translateX(-100%);
-                box-shadow: var(--shadow-lg);
-            }
-            .sidebar.open { transform: translateX(0); }
-            .main-content { padding: 1rem; }
-            .chat-window {
-                right: 0.75rem;
-                left: 0.75rem;
-                bottom: 5rem;
-                width: auto;
-            }
-        }
-    </style>
+    <title>Catálogo Digital de Soluciones TI & Cotizador B2B | BITMOVIL</title>
+    <meta name="description" content="Portafolio oficial de cableado estructurado, redes, videovigilancia y energía de BITMOVIL. Cotiza directamente por WhatsApp y consulta con nuestro Asesor Técnico en línea.">
+    <meta property="og:title" content="Catálogo de Infraestructura TI & Telecomunicaciones | BITMOVIL">
+    <meta property="og:description" content="Explora nuestro portafolio de más de 150 productos certificados y solicita tu cotización formal para proyectos corporativos.">
+    <meta property="og:type" content="website">
+    <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
 
-    <!-- HEADER -->
+    <!-- HEADER PRINCIPAL -->
     <header>
         <div class="header-left">
-            <button class="mobile-menu-btn" id="menu-btn" title="Ver Categorías">☰</button>
-            <a href="https://bitmovil.mx" target="_blank">
-                <img src="https://bitmovil.mx/img/logos/logo-bitmovil-blanco.webp" alt="BITMOVIL" class="logo">
+            <button class="mobile-menu-btn" id="menu-btn" aria-label="Abrir menú de categorías">☰</button>
+            <a href="https://bitmovil.mx" target="_blank" aria-label="Ir al sitio oficial de BITMOVIL">
+                <img src="https://bitmovil.mx/img/logos/logo-bitmovil-blanco.webp" alt="BITMOVIL Logo" class="logo">
             </a>
-            <span class="header-title-badge">Portafolio Oficial TI</span>
+            <span class="header-title-badge">Catálogo Oficial TI</span>
         </div>
 
         <div class="search-container">
-            <span class="search-icon">🔍</span>
-            <input type="text" id="global-search" class="search-input" placeholder="Buscar por modelo, marca o descripción (ej. Cat6, 4K, Switch, Hikvision)...">
+            <span class="search-icon" aria-hidden="true">🔍</span>
+            <input type="text" id="global-search" class="search-input" placeholder="Buscar modelo, marca o descripción (ej. Cat6, Switch PoE, 4K, Hikvision)..." aria-label="Buscar productos">
         </div>
 
         <div class="header-actions">
-            <a href="https://bitmovil.mx" target="_blank" class="btn-cotizar">
-                <span>Ir a Bitmovil.mx</span> ↗
-            </a>
+            <button class="btn-header-cart" id="header-cart-btn" aria-label="Ver lista de cotización">
+                <span>📋 Mi Cotización</span>
+                <span class="cart-count-badge" id="cart-badge" style="display:none;">0</span>
+            </button>
         </div>
     </header>
 
-    <!-- MAIN APP CONTAINER -->
+    <!-- CONTENEDOR PRINCIPAL -->
     <div class="container">
-        <!-- SIDEBAR DE CATEGORÍAS -->
-        <aside class="sidebar" id="sidebar">
+        <!-- BARRA LATERAL DE CATEGORÍAS -->
+        <aside class="sidebar" id="sidebar" aria-label="Categorías de productos">
             <div class="sidebar-header">Líneas de Solución</div>
-            <div id="category-list">
-                <!-- Se inyecta dinámicamente -->
-            </div>
+            <div id="category-list"></div>
         </aside>
 
-        <!-- CONTENIDO PRINCIPAL -->
+        <!-- SECCIÓN DE PRODUCTOS -->
         <main class="main-content">
             <div class="content-header">
                 <div>
                     <h1 class="category-title" id="current-category">Cargando catálogo...</h1>
                     <p class="category-count" id="category-count"></p>
                 </div>
-                <div class="filter-pills">
-                    <button class="pill-btn active" data-filter="all">Todos</button>
-                    <button class="pill-btn" data-filter="ficha">Con Ficha Técnica</button>
-                    <button class="pill-btn" data-filter="foto">Con Fotografía</button>
+                <div class="filters-bar">
+                    <select id="brand-filter" class="brand-select" aria-label="Filtrar por marca">
+                        <option value="ALL">Todas las Marcas</option>
+                    </select>
+                    <div class="filter-pills">
+                        <button class="pill-btn active" data-filter="all" aria-label="Ver todos los productos">Todos</button>
+                        <button class="pill-btn" data-filter="ficha" aria-label="Ver productos con ficha técnica">Con Ficha</button>
+                        <button class="pill-btn" data-filter="foto" aria-label="Ver productos con fotografía">Con Foto</button>
+                    </div>
                 </div>
             </div>
 
-            <div class="grid" id="product-grid">
-                <!-- Tarjetas de productos -->
+            <div class="grid" id="product-grid" aria-live="polite">
+                <!-- Se inyecta dinámicamente desde app.js -->
             </div>
         </main>
     </div>
 
-    <!-- WIDGET DE CHATBOT EXPERTO EN CABLEADO -->
-    <button class="chat-widget-btn" id="chat-toggle-btn">
+    <!-- DRAWER DEL COTIZADOR B2B -->
+    <div class="drawer-backdrop" id="drawer-backdrop"></div>
+    <div class="drawer" id="cart-drawer" role="dialog" aria-modal="true" aria-labelledby="drawer-title-id">
+        <div class="drawer-header">
+            <div class="drawer-title" id="drawer-title-id">
+                <span>📋 Solicitud de Cotización</span>
+                <span id="drawer-items-count" style="font-size:0.9rem;font-weight:normal;"></span>
+            </div>
+            <button class="drawer-close-btn" id="drawer-close-btn" aria-label="Cerrar cotizador">&times;</button>
+        </div>
+        <div class="drawer-content" id="cart-items-container"></div>
+        <div class="drawer-footer">
+            <div id="cart-limit-notice" style="display:none;background:#fef3c7;border:1px solid #f59e0b;padding:0.5rem;border-radius:4px;font-size:0.75rem;color:#92400e;">
+                ⚠️ Lista extensa: se resumirá en el mensaje de WhatsApp. Puedes copiar la lista completa o descargarla en CSV abajo.
+            </div>
+            <div class="customer-form">
+                <input type="text" id="client-name" class="form-input" placeholder="Tu Nombre o Contacto..." aria-label="Nombre del cliente">
+                <input type="text" id="client-company" class="form-input" placeholder="Empresa o Razón Social..." aria-label="Empresa">
+            </div>
+            <button class="btn-send-whatsapp" id="btn-whatsapp-send" aria-label="Solicitar cotización por WhatsApp">
+                <span>💬 Solicitar por WhatsApp</span>
+            </button>
+            <div class="btn-secondary-actions">
+                <button class="btn-cart-secondary" id="btn-copy-quote" aria-label="Copiar lista de cotización al portapapeles">📋 Copiar Lista</button>
+                <button class="btn-cart-secondary" id="btn-csv-quote" aria-label="Descargar cotización en archivo CSV">📥 Descargar CSV</button>
+            </div>
+            <p class="privacy-notice">
+                Tus datos se usan únicamente para fines de cotización comercial. Consulta nuestro <a href="https://bitmovil.mx/aviso-de-privacidad" target="_blank">Aviso de Privacidad</a>.
+            </p>
+        </div>
+    </div>
+
+    <!-- MODAL DE DETALLE DE PRODUCTO -->
+    <div class="modal-backdrop" id="modal-backdrop">
+        <div class="modal-card" id="modal-content" role="dialog" aria-modal="true"></div>
+    </div>
+
+    <!-- CHATBOT ASESOR EN CABLEADO Y TI -->
+    <button class="chat-widget-btn" id="chat-toggle-btn" aria-label="Abrir chat con el Asesor Técnico">
         <span class="pulse-dot"></span>
         <span>💬 Asesor de Cableado y TI</span>
     </button>
 
-    <div class="chat-window" id="chat-window">
+    <div class="chat-window" id="chat-window" role="dialog" aria-modal="false" aria-label="Ventana de asesoría técnica">
         <div class="chat-header">
             <div class="chat-header-info">
-                <div class="chat-avatar">🛠️</div>
+                <div class="chat-avatar" aria-hidden="true">🛠️</div>
                 <div>
                     <div class="chat-title">Ingeniería Bitmovil</div>
-                    <div class="chat-status"><span class="pulse-dot" style="width:6px;height:6px;"></span> Asesor Técnico Activo</div>
+                    <div class="chat-status"><span class="pulse-dot" style="width:6px;height:6px;"></span> Asesor en Línea</div>
                 </div>
             </div>
-            <button class="chat-close-btn" id="chat-close-btn">&times;</button>
+            <button class="chat-close-btn" id="chat-close-btn" aria-label="Cerrar chat">&times;</button>
         </div>
 
-        <div class="chat-messages" id="chat-messages">
+        <div class="chat-messages" id="chat-messages" aria-live="polite">
             <div class="message bot-message">
                 <strong>¡Hola! Soy tu Asesor Técnico en Infraestructura de BITMOVIL.</strong><br>
-                ¿Tienes alguna problemática o duda sobre cableado estructurado, distancias de cámaras, switches o canalizaciones? Cuéntame tu caso y te guiaré con los criterios de ingeniería y productos ideales.
+                ¿Tienes alguna duda sobre distancias máximas, categorías de cableado, canalizaciones o switches PoE? Cuéntame tu caso y te oriento con los criterios normados y productos de nuestro catálogo.
                 
                 <div class="chat-quick-pills">
-                    <button class="chat-pill" onclick="sendQuickPrompt('¿Cuál es la distancia máxima para cable de red UTP?')">Distancia máxima UTP</button>
-                    <button class="chat-pill" onclick="sendQuickPrompt('¿Qué cable se recomienda para cámaras en exterior?')">Cable exterior vs interior</button>
-                    <button class="chat-pill" onclick="sendQuickPrompt('¿Diferencia entre Categoría 6 y 6A?')">Cat6 vs Cat6A</button>
-                    <button class="chat-pill" onclick="sendQuickPrompt('Recomiéndame switches PoE para cámaras')">Switches PoE</button>
+                    <button class="chat-pill" data-prompt="¿Cuál es la distancia máxima para un enlace de red de cobre?">Distancia máxima UTP</button>
+                    <button class="chat-pill" data-prompt="¿Qué cable debo usar en exteriores o intemperie?">Cable exterior vs interior</button>
+                    <button class="chat-pill" data-prompt="¿Qué diferencia hay entre Cat6 y Cat6A?">Cat6 vs Cat6A</button>
+                    <button class="chat-pill" data-prompt="Recomiéndame switches PoE para cámaras">Switches PoE</button>
                 </div>
             </div>
         </div>
 
         <form class="chat-input-bar" id="chat-form">
-            <input type="text" id="chat-input" placeholder="Describe tu necesidad o requerimiento..." autocomplete="off">
-            <button type="submit" class="chat-send-btn">Enviar</button>
+            <div class="chat-input-row">
+                <input type="text" id="chat-input" placeholder="Describe tu necesidad técnica..." autocomplete="off" aria-label="Escribe tu consulta">
+                <button type="submit" class="chat-send-btn" aria-label="Enviar mensaje">Enviar</button>
+            </div>
+            <div style="font-size:0.68rem;color:#94a3b8;text-align:center;">
+                Protegido por el <a href="https://bitmovil.mx/aviso-de-privacidad" target="_blank" style="color:#64748b;">Aviso de Privacidad</a> de BITMOVIL.
+            </div>
         </form>
     </div>
 
-    <!-- SCRIPTS DE DATOS Y CONFIGURACIÓN -->
+    <!-- SCRIPTS CLÁSICOS (CERO TYPE="MODULE" PARA SOPORTE COMPLETO FILE:///) -->
     <script src="datos.js"></script>
-    <script src="llm_config.js"></script>
-
-    <script>
-        let currentFilter = 'all';
-        let currentCategoryName = '';
-        let searchQuery = '';
-
-        // INICIALIZACIÓN
-        function init() {
-            if (typeof catalogoData === 'undefined' || !catalogoData.length) {
-                document.getElementById('product-grid').innerHTML = 
-                    `<div style="padding:2rem;text-align:center;color:#64748b;">
-                        Error cargando catálogo. Asegúrate de ejecutar <code>python actualizar_web.py</code>.
-                    </div>`;
-                return;
-            }
-
-            renderSidebar();
-            selectCategory(catalogoData[0].linea);
-            setupEvents();
-        }
-
-        // RENDER SIDEBAR
-        function renderSidebar() {
-            const list = document.getElementById('category-list');
-            list.innerHTML = '';
-
-            catalogoData.forEach(cat => {
-                const btn = document.createElement('button');
-                btn.className = 'category-btn';
-                btn.dataset.category = cat.linea;
-                btn.innerHTML = `
-                    <span>${cat.linea}</span>
-                    <span class="category-badge">${cat.productos.length}</span>
-                `;
-                btn.onclick = () => {
-                    searchQuery = '';
-                    document.getElementById('global-search').value = '';
-                    selectCategory(cat.linea);
-                    // Cerrar sidebar en móvil
-                    document.getElementById('sidebar').classList.remove('open');
-                };
-                list.appendChild(btn);
-            });
-        }
-
-        // SELECCIONAR CATEGORÍA
-        function selectCategory(lineaName) {
-            currentCategoryName = lineaName;
-            document.querySelectorAll('.category-btn').forEach(btn => {
-                btn.classList.toggle('active', btn.dataset.category === lineaName);
-            });
-            renderProducts();
-        }
-
-        // RENDER PRODUCTOS
-        function renderProducts() {
-            const grid = document.getElementById('product-grid');
-            const titleEl = document.getElementById('current-category');
-            const countEl = document.getElementById('category-count');
-            grid.innerHTML = '';
-
-            let productsToDisplay = [];
-
-            if (searchQuery.trim() !== '') {
-                titleEl.textContent = `Resultados de búsqueda: "${searchQuery}"`;
-                // Buscar en todo el catálogo
-                const q = searchQuery.toLowerCase();
-                catalogoData.forEach(cat => {
-                    cat.productos.forEach(p => {
-                        if (p.no_parte.toLowerCase().includes(q) ||
-                            p.marca.toLowerCase().includes(q) ||
-                            p.descripcion.toLowerCase().includes(q) ||
-                            cat.linea.toLowerCase().includes(q)) {
-                            productsToDisplay.push(p);
-                        }
-                    });
-                });
-            } else {
-                const cat = catalogoData.find(c => c.linea === currentCategoryName);
-                if (!cat) return;
-                titleEl.textContent = cat.linea;
-                productsToDisplay = [...cat.productos];
-            }
-
-            // Aplicar filtros de píldoras
-            if (currentFilter === 'ficha') {
-                productsToDisplay = productsToDisplay.filter(p => p.tiene_ficha);
-            } else if (currentFilter === 'foto') {
-                productsToDisplay = productsToDisplay.filter(p => p.tiene_imagen);
-            }
-
-            countEl.textContent = `${productsToDisplay.length} artículo(s) encontrado(s)`;
-
-            if (productsToDisplay.length === 0) {
-                grid.innerHTML = `
-                    <div style="grid-column: 1/-1; padding: 3rem; text-align: center; color: #64748b;">
-                        <h3>No se encontraron artículos con los criterios seleccionados</h3>
-                        <p style="margin-top:0.5rem; font-size:0.9rem;">Prueba buscando otra palabra clave o selecciona otra categoría.</p>
-                    </div>`;
-                return;
-            }
-
-            productsToDisplay.forEach(prod => {
-                const card = document.createElement('div');
-                card.className = 'card';
-
-                const imgHtml = prod.tiene_imagen
-                    ? `<img src="${prod.imagen_url}" alt="${prod.no_parte}" loading="lazy">`
-                    : `<div class="no-img"><span>📷</span><span>Imagen en proceso</span></div>`;
-
-                const btnFichaHtml = prod.tiene_ficha
-                    ? `<a href="${prod.ficha_url}" class="btn-ficha" target="_blank" download>📄 Descargar Ficha Oficial</a>`
-                    : `<span class="btn-ficha btn-disabled">Ficha Técnica en proceso</span>`;
-
-                card.innerHTML = `
-                    <div class="card-img-container">
-                        ${imgHtml}
-                    </div>
-                    <div class="card-body">
-                        <span class="brand-badge">${prod.marca || 'BITMOVIL'}</span>
-                        <div class="part-number">${prod.no_parte}</div>
-                        <div class="desc">${prod.descripcion}</div>
-                        <div class="card-actions">
-                            ${btnFichaHtml}
-                            <button class="btn-consultar-item" onclick="consultarProductoChat('${prod.no_parte}', '${prod.marca}')">
-                                💬 Consultar compatibilidad
-                            </button>
-                        </div>
-                    </div>
-                `;
-                grid.appendChild(card);
-            });
-        }
-
-        // EVENTOS GENERALES
-        function setupEvents() {
-            // Buscador global en vivo
-            document.getElementById('global-search').addEventListener('input', (e) => {
-                searchQuery = e.target.value;
-                renderProducts();
-            });
-
-            // Filtros de píldoras
-            document.querySelectorAll('.pill-btn').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    document.querySelectorAll('.pill-btn').forEach(b => b.classList.remove('active'));
-                    btn.classList.add('active');
-                    currentFilter = btn.dataset.filter;
-                    renderProducts();
-                });
-            });
-
-            // Menú móvil
-            document.getElementById('menu-btn').addEventListener('click', () => {
-                document.getElementById('sidebar').classList.toggle('open');
-            });
-
-            // Chat Widget Toggle
-            const chatToggle = document.getElementById('chat-toggle-btn');
-            const chatWindow = document.getElementById('chat-window');
-            const chatClose = document.getElementById('chat-close-btn');
-
-            chatToggle.addEventListener('click', () => {
-                chatWindow.style.display = chatWindow.style.display === 'flex' ? 'none' : 'flex';
-            });
-            chatClose.addEventListener('click', () => {
-                chatWindow.style.display = 'none';
-            });
-
-            // Chat Form Submit
-            document.getElementById('chat-form').addEventListener('submit', (e) => {
-                e.preventDefault();
-                const input = document.getElementById('chat-input');
-                const text = input.value.trim();
-                if (!text) return;
-                input.value = '';
-                handleUserMessage(text);
-            });
-        }
-
-        // LÓGICA DEL CHATBOT ASESOR
-        function appendChatMessage(html, sender = 'bot') {
-            const container = document.getElementById('chat-messages');
-            const msg = document.createElement('div');
-            msg.className = `message ${sender}-message`;
-            msg.innerHTML = html;
-            container.appendChild(msg);
-            container.scrollTop = container.scrollHeight;
-        }
-
-        function sendQuickPrompt(promptText) {
-            handleUserMessage(promptText);
-        }
-
-        function consultarProductoChat(noParte, marca) {
-            const chatWindow = document.getElementById('chat-window');
-            chatWindow.style.display = 'flex';
-            handleUserMessage(`Quisiera asesoría sobre el producto ${marca} modelo ${noParte}, ¿qué accesorios o cableado me recomiendan para su instalación?`);
-        }
-
-        async function handleUserMessage(userText) {
-            appendChatMessage(userText, 'user');
-
-            // Si el administrador activó el LLM externo
-            if (window.BITMOVIL_LLM_CONFIG && window.BITMOVIL_LLM_CONFIG.enabled) {
-                appendChatMessage("<em>Consultando a ingeniería Bitmovil...</em>", 'bot');
-                try {
-                    const response = await fetch(window.BITMOVIL_LLM_CONFIG.endpoint, {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                            'Authorization': window.BITMOVIL_LLM_CONFIG.apiKey
-                        },
-                        body: JSON.stringify({
-                            model: window.BITMOVIL_LLM_CONFIG.model,
-                            messages: [
-                                { role: 'system', content: window.BITMOVIL_LLM_CONFIG.systemPrompt },
-                                { role: 'user', content: userText }
-                            ]
-                        })
-                    });
-                    const data = await response.json();
-                    const reply = data.choices ? data.choices[0].message.content : data.response || "No se obtuvo respuesta del modelo.";
-                    
-                    // Remover mensaje temporal y agregar respuesta
-                    const msgs = document.getElementById('chat-messages');
-                    msgs.removeChild(msgs.lastChild);
-                    appendChatMessage(reply.replace(/\n/g, '<br>'), 'bot');
-                    return;
-                } catch (err) {
-                    console.warn("Fallo al conectar con LLM externo, cambiando a motor local:", err);
-                    const msgs = document.getElementById('chat-messages');
-                    msgs.removeChild(msgs.lastChild);
-                }
-            }
-
-            // MOTOR LOCAL INTELIGENTE (Consultor de Cableado & Productos)
-            setTimeout(() => {
-                const reply = generarRespuestaLocal(userText);
-                appendChatMessage(reply, 'bot');
-            }, 400);
-        }
-
-        // MOTOR REGLAS DE INGENIERÍA Y BÚSQUEDA EN CATÁLOGO
-        function generarRespuestaLocal(q) {
-            const query = q.toLowerCase();
-            let respuesta = "";
-            let productosRecomendados = [];
-
-            if (query.includes('distancia') || query.includes('metro') || query.includes('largo')) {
-                respuesta = `<strong>Norma TIA/EIA-568 para Distancias:</strong><br>
-                El límite máximo normado para un enlace horizontal de cobre (Cat5e, Cat6, Cat6A) es de <strong>90 metros</strong> para el cableado fijo más <strong>10 metros</strong> de patch cords (100 metros en total de canal).<br><br>
-                💡 <em>Si tu distancia supera los 90-100 metros:</em> Se recomienda tender un enlace de <strong>Fibra Óptica</strong> o instalar un switch repetidor intermedio con respaldo de energía.`;
-            } else if (query.includes('exterior') || query.includes('clima') || query.includes('sol') || query.includes('intemperie')) {
-                respuesta = `<strong>Criterio para Cableado en Exteriores:</strong><br>
-                Nunca utilices cable interior (CMR/CMP) en exterior o ductos subterráneos. Requiere chaqueta <strong>UV-Proof / CMX</strong> con gel repelente de agua para evitar que la humedad degrade la señal y cause cortocircuito en el PoE.`;
-            } else if (query.includes('cat6') || query.includes('cat6a') || query.includes('categoria')) {
-                respuesta = `<strong>Comparativa Cat6 vs Cat6A:</strong><br>
-                • <strong>Cat6:</strong> Soporta 1 Gbps hasta 90m, y 10 Gbps solo hasta 37-55m.<br>
-                • <strong>Cat6A:</strong> Soporta 10 Gbps a los 100m completos y tiene mayor blindaje contra diafonía (alien crosstalk), ideal para Data Centers y switches multi-gigabit.`;
-            } else if (query.includes('switch') || query.includes('poe')) {
-                respuesta = `<strong>Criterio para Switches PoE:</strong><br>
-                Revisa el consumo total (PoE Budget). Para cámaras normales usa 802.3af (15.4W); si tienen luz blanca, motor PTZ o calefactor requieres 802.3at (PoE+ 30W) o 802.3bt (Hi-PoE 60W).`;
-            } else {
-                respuesta = `<strong>Diagnóstico Técnico Bitmovil:</strong><br>
-                Para garantizar la estabilidad de tu proyecto de infraestructura, en BITMOVIL aplicamos siempre las mejores prácticas: cable 100% Cobre certificado, canalizaciones protegidas y cálculo de potencia PoE garantizado.`;
-            }
-
-            // Buscar 1 o 2 productos sugeridos en la base de datos
-            catalogoData.forEach(cat => {
-                cat.productos.forEach(p => {
-                    if (productosRecomendados.length < 2) {
-                        if ((query.includes('camara') || query.includes('cctv')) && cat.linea.includes('Videovigilancia')) {
-                            productosRecomendados.push(p);
-                        } else if ((query.includes('cable') || query.includes('utp') || query.includes('cat6')) && (cat.linea.includes('Cableado') || cat.linea.includes('Redes'))) {
-                            productosRecomendados.push(p);
-                        } else if (query.includes('switch') && cat.linea.includes('Redes')) {
-                            productosRecomendados.push(p);
-                        }
-                    }
-                });
-            });
-
-            if (productosRecomendados.length > 0) {
-                respuesta += `<br><br><strong>Productos sugeridos de nuestro portafolio:</strong>`;
-                productosRecomendados.forEach(pr => {
-                    respuesta += `
-                        <div class="chat-rec-card">
-                            <div class="chat-rec-title">${pr.marca} — ${pr.no_parte}</div>
-                            <div>${pr.descripcion.substring(0, 85)}...</div>
-                        </div>
-                    `;
-                });
-            }
-
-            respuesta += `<br><small style="color:#64748b;">¿Requieres cotización o levantamiento en sitio? <a href="https://bitmovil.mx" target="_blank" style="color:#2563eb;text-decoration:underline;">Contáctanos aquí</a>.</small>`;
-
-            return respuesta;
-        }
-
-        // INICIAR
-        window.addEventListener('DOMContentLoaded', init);
-    </script>
+    <script src="js/cart.js"></script>
+    <script src="js/chat.js"></script>
+    <script src="js/app.js"></script>
 </body>
 </html>

@@ -1,17 +1,25 @@
-# Logs
+# Logs de sistema
 *.log
 actualizar_web.log
 sync_syscom.log
 
-# Archivos de entorno y credenciales sensibles
-config.env.local
+# Archivos de credenciales y variables de entorno
+config.env
+*.env.local
 .env.local
+web/api/secrets.env
+secrets.env
 
-# Archivos temporales de Excel y Office
+# Caché y logs del servidor PHP
+web/api/cache/
+web/api/*.log
+cache/
+
+# Archivos temporales de Office y Excel
 ~$*.xlsx
 *.tmp
 
-# Python cache
+# Entornos y caché de Python
 __pycache__/
 *.py[cod]
 *$py.class

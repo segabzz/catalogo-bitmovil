@@ -7,14 +7,15 @@
     AddType application/json .json
     AddType image/avif .avif
     AddType image/webp .webp
+    AddType application/xml .xml
 </IfModule>
 
 # Compresión GZIP para máxima velocidad de carga
 <IfModule mod_deflate.c>
-    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css application/javascript application/json application/xml
 </IfModule>
 
-# Caché de navegadores para recursos estáticos (30 días)
+# Caché de navegadores para recursos estáticos (con versionado ?v=hash en HTML)
 <IfModule mod_expires.c>
     ExpiresActive On
     ExpiresByType image/jpg "access plus 1 month"
@@ -28,8 +29,12 @@
     ExpiresByType application/javascript "access plus 1 week"
 </IfModule>
 
-# Seguridad básica
+# Cabeceras de Seguridad y Protección
 <IfModule mod_headers.c>
-    Header set X-Content-Type-Options "nosniff"
-    Header set X-Frame-Options "SAMEORIGIN"
+    Header always set X-Content-Type-Options "nosniff"
+    Header always set X-Frame-Options "SAMEORIGIN"
+    Header always set Referrer-Policy "strict-origin-when-cross-origin"
+    
+    # CSP Desplegado inicialmente en modo Report-Only para auditar sin romper GTM ni estilos
+    Header always set Content-Security-Policy-Report-Only "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com; style-src 'self' 'unsafe-inline'; img-src 'self' data: https:; connect-src 'self' https://api.anthropic.com; font-src 'self' data:; frame-ancestors 'self';"
 </IfModule>

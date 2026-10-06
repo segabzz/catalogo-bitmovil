@@ -1,0 +1,155 @@
+﻿Linea,No_Parte,Marca,Descripcion,Tiene_Imagen,Tiene_Ficha
+Videovigilancia,DS-2CD1043G2-LIU(F),HIKVISION,"Bala IP 4 MP Dual Light, IR 30 m + luz blanca 30 m, micrófono, AcuSense Lite, IP67, PoE",SI,NO
+Videovigilancia,DS-2CD1063G2-LIU,HIKVISION,"Bala IP 6 MP Dual Light, micrófono integrado, AcuSense Lite, exterior IP67, H.265, PoE",SI,NO
+Videovigilancia,DS-2CD1083G2-LIU(F),HIKVISION,"Bala IP 8 MP (4K) Dual Light, IR + luz blanca, AcuSense Lite, IP67, PoE, micro SD",SI,NO
+Videovigilancia,DS-2CE76K0T-LMFS,HIKVISION,"Turret TurboHD 3K (5 MP) ColorVu, IR 30 m + luz blanca, IP67, micrófono, metal",SI,NO
+Videovigilancia,THC-T127-LMS,HILOOK,"Turret TurboHD 2 MP Dual Light ColorVu, lente 2.8 mm, IP66, TVI/AHD/CVI/CVBS",SI,NO
+Videovigilancia,THC-B127-LMS,HILOOK,"Bala TurboHD 2 MP Dual Light ColorVu, lente 2.8 mm, exterior IP66, metal",SI,NO
+Videovigilancia,DS-7632NXI-K2/16P(E),HIKVISION,"NVR 4K de 32 canales IP, 16 puertos PoE+, AcuSense, reconocimiento facial, 2 bahías",SI,NO
+Videovigilancia,HL-1080-PS4,HILOOK,Kit TurboHD 1080p: DVR 4 canales + 4 cámaras bala con micrófono integrado,SI,NO
+Videovigilancia,CSH8C/3MP,EZVIZ,"Cámara PT Wi-Fi 3 MP (2K), audio dos vías, visión nocturna a color, sirena, IP65",SI,NO
+Videovigilancia,DS-MCW409/SE/64G/GLE(C),HIKVISION,"Body camera portátil 2K, fotos 40 MP, IP68 MIL-STD-810G, 4G/Wi-Fi/GPS, 64 GB",SI,NO
+Videovigilancia,DS-2CD1383G2-LIU(F),HIKVISION,"Turret IP 8 MP (4K) Dual Light, micrófono, AcuSense Lite, IP67, PoE, ONVIF",SI,NO
+Videovigilancia,XMRDASHCAMADPLUS,STREAMAX,"Dashcam multiplataforma con ADAS y DSM, medición de combustible, 4G y GPS",SI,NO
+Radiocomunicación,TE620G,TELOX,"Radio LTE Android 14, cámara 13 MP, IP68 MIL-810G",NO,NO
+Radiocomunicación,TE320,TELOX,"Radio PoC 4G LTE, audio 3W con cancelación de ruido, IP67, batería 4000 mAh",NO,NO
+Radiocomunicación,MT100,TELOX,Radio PoC LTE Wi-Fi compacto y portátil (compatible con TASSTA),NO,NO
+Radiocomunicación,RG360,RUGGEAR,"Radio PoC LTE, PTT Mission-Critical 3GPP, IP68 MIL-STD-810H, batería extraíble",NO,NO
+Radiocomunicación,TXM52,TXPROMARINE,"Radio portátil marino VHF, sumergible IP67, 5W, dual-watch, reducción de ruido",NO,NO
+Radiocomunicación,TFLEX-PTT,TASSTA,Licencia PTT 12 meses de servicio de radio push-to-talk,NO,NO
+Radiocomunicación,NXRADIO,NXRADIO,"Licencia anual PoC por dispositivo para Android, iOS y despacho en PC",NO,NO
+Radiocomunicación,MHB-5800,PCTEL,"Antena móvil VHF ajustable en campo, 144-174 MHz",NO,NO
+Radiocomunicación,MFT-121,PCTEL,"Antena móvil ajustable en campo, 118-940 MHz",NO,NO
+Radiocomunicación,390,SHAKESPEARE,"Antena marina base HF 2-30 MHz, armado en 2 secciones, 1 kW",NO,NO
+Radiocomunicación,ANT-150D6-9,TELEWAVE,"Antena base VHF de 4 dipolos, 138-174 MHz",NO,NO
+Radiocomunicación,SPUPLUS,ELECTRONIC DESIGN,"Programador universal de radios ICOM y KENWOOD analógicos, USB y RS232",NO,NO
+Redes e IT,LBE-5AC-GEN2,UBIQUITI,"LiteBeam airMAX AC GEN2 CPE hasta 450 Mbps, 5 GHz, antena integrada 23 dBi",NO,NO
+Redes e IT,LOCO5AC,UBIQUITI,"NanoStation airMAX Loco5AC CPE hasta 450 Mbps, 5 GHz, antena 13 dBi",NO,NO
+Redes e IT,R5AC-LITE,UBIQUITI,"Radio estación base airMAX AC Lite hasta 500 Mbps, 5 GHz",NO,NO
+Redes e IT,AF-5XHD,UBIQUITI,"airFiber backhaul conectorizado de alta capacidad hasta 1 Gbps, 5 GHz",NO,NO
+Redes e IT,USW-PRO-48-POE,UBIQUITI,"UniFi Switch capa 3, 48 puertos PoE 802.3at/bt + 4 SFP+, 600 W",NO,NO
+Redes e IT,USW-PRO-24-POE,UBIQUITI,"UniFi Switch capa 3, 24 puertos PoE 802.3at/bt + 2 SFP+, 400 W",NO,NO
+Redes e IT,LAP-120,UBIQUITI,"Estación base LiteAP AC hasta 450 Mbps, 5 GHz, antena 16 dBi 120°",NO,NO
+Redes e IT,XV2-22H0A00-RW,CAMBIUM NETWORKS,"Punto de acceso empresarial Wi-Fi 6, 3 puertos Gigabit, gestión en la nube",NO,NO
+Redes e IT,EG8041V5,HUAWEI,"ONT GPON OptiXstar Wi-Fi 5 doble banda, antenas 7 dBi, 4 puertos LAN",NO,NO
+Redes e IT,SAT5210-7000G,SYNOLOGY,"SSD SATA 2.5"" serie Enterprise 7 TB, compatible con Synology DSM",NO,NO
+Redes e IT,25242,UGREEN,"NASync DXP2800, Intel N100, 2 bahías SATA + 2 M.2 NVMe, 8 GB DDR5, 2.5 GbE",NO,NO
+Redes e IT,WD11PURZ,WESTERN DIGITAL,"Disco duro Purple 1 TB, optimizado para videovigilancia, uso 24/7",NO,NO
+"GPS, Telemática y Equipamiento Vehicular",SP216B,SIGNALPRO,"Barra de luces 48"" 216 LED dual color programable (rojo/azul/ámbar/claro)",NO,NO
+"GPS, Telemática y Equipamiento Vehicular",SP204V2,SIGNALPRO,"Sirena vehicular 200W programable, controlador de 15 botones, micrófono",NO,NO
+"GPS, Telemática y Equipamiento Vehicular",SPF12W,SIGNALPRO,"Estrobo oculto de 12 LED, 12 Vcd, lente transparente",NO,NO
+"GPS, Telemática y Equipamiento Vehicular",SP100,SIGNALPRO,"Bocina compacta de uso rudo, 100 W, montaje universal",NO,NO
+"GPS, Telemática y Equipamiento Vehicular",AE-MD5043-SD/I/GLF/WI58,HIKVISION,"DVR móvil 1080p 4 canales TurboHD, IA integrada, 4G + Wi-Fi + GPS, dual SD",NO,NO
+"GPS, Telemática y Equipamiento Vehicular",AE-DI5052-G40PRO,HIKVISION,"Dashcam 4G LTE 5 canales, frontal 1620p, ADAS/DSM, GPS, Wi-Fi, Bluetooth",NO,NO
+"GPS, Telemática y Equipamiento Vehicular",1633358C,ECCO,"Torreta 47"" serie 16 con 300 LEDs, dual color frente y trasero",NO,NO
+"GPS, Telemática y Equipamiento Vehicular",X67-RBA,EPCOM,"Barra de luces 47"" rojo/azul, 88 LED, con control de tráfico ámbar",NO,NO
+"GPS, Telemática y Equipamiento Vehicular",VTSCX,JIMIIOT,Licencia vitalicia para plataforma de rastreo TracksolidPro,NO,NO
+"GPS, Telemática y Equipamiento Vehicular",XMR-R3,EPCOM,"Body camera de seguridad, video 4K, GPS, 4G-LTE, Wi-Fi, Bluetooth, IP66",NO,NO
+"GPS, Telemática y Equipamiento Vehicular",XMRX5V2,EPCOM,"Body camera hasta 48 MP, video 4 MP, GPS interconstruido, pantalla LCD",NO,NO
+"GPS, Telemática y Equipamiento Vehicular",XMRCP4,STREAMAX,"Panel de control dactilar multifunción, monitor 7"", audio dos vías para DVR móvil",NO,NO
+Energía y Climatización,CHI-R32-24K-220,AUFIT,"Minisplit Wi-Fi Inverter SEER 17, 24,000 BTU (2 TON), R32, frío/calor, 220 Vca",NO,NO
+Energía y Climatización,CHI-R32-12K-110,AUFIT,"Minisplit Wi-Fi Inverter SEER 20, 12,000 BTU (1 TON), R32, frío/calor, 110 Vca",NO,NO
+Energía y Climatización,LR866HVD645M,LONGI,"Módulo solar HI-MO X10, 645 W bifacial, monocristalino HPBC, 53.7 Vcc",NO,NO
+Energía y Climatización,MIN6000TLX2,GROWATT,"Inversor de interconexión 6 kW, 220 Vca, 2 MPPT, eficiencia 98.4%, Wi-Fi",NO,NO
+Energía y Climatización,MIN10000TLX2,GROWATT,"Inversor de interconexión 10 kW, 220 Vca, 3 MPPT, eficiencia 98.1%, Wi-Fi",NO,NO
+Energía y Climatización,HNS10000TL,AFORE,"Inversor de interconexión a CFE 10 kW, salida 220 Vca, módulo Wi-Fi",NO,NO
+Energía y Climatización,EFD31500,ECOFLOW,"Estación de energía portátil Delta 3, 1536 Wh LFP, 1800 W AC, carga solar",NO,NO
+Energía y Climatización,RES20010K,EPCOM,"Batería LiFePO4 10 kWh, 51.2 Vcc, 200 Ah, outdoor, instalación a pared",NO,NO
+Energía y Climatización,V5BATTERY,PYTES,"Batería LiFePO4 5.12 kWh, 51.2 Vcc, 100 Ah",NO,NO
+Energía y Climatización,RLB10048MAX,EPCOM,"Batería de litio 4.8 kWh, 48 Vcc, 104 Ah, montaje en rack 3U",NO,NO
+Energía y Climatización,U02N11V,PANDUIT,"UPS SmartZone 2000 VA/2000 W, online doble conversión, onda senoidal pura, 2 UR",NO,NO
+Energía y Climatización,XP18DC30UD,EPCOM,"Fuente premium 11-15 V, 18 canales, 30 A, doble ventilador, filtro de ruido",NO,NO
+Automatización e Intrusión,VISTA48/6160RFCOM,HONEYWELL,Panel de alarma híbrido con teclado 6160RF y comunicador celular 3G/4G,NO,NO
+Automatización e Intrusión,VISTA-48/6160RF,HONEYWELL,"Panel de intrusión hasta 48 zonas, teclado alfanumérico y receptor inalámbrico",NO,NO
+Automatización e Intrusión,MN01-LTE-M,M2M SERVICES,"Comunicador LTE 5G dual SIM, compatible Honeywell/DSC/Crow/Pima, cero configuración",NO,NO
+Automatización e Intrusión,DS-PWA48-KSV2,HIKVISION,Kit de alarma AX PRO GSM: hub + 2 PIR + 3 contactos + control + sirena exterior,NO,NO
+Automatización e Intrusión,DS-PWA48-M-WB,HIKVISION,"Panel de alarma inalámbrico AX PRO 48 zonas, GSM 3G/4G, Wi-Fi y Ethernet",NO,NO
+Automatización e Intrusión,DS-PDP15P-EG2-WB(B),HIKVISION,"Detector PIR inalámbrico AX PRO, inmunidad a mascotas, alcance 15 m, 85.9°",NO,NO
+Automatización e Intrusión,5816,HONEYWELL,"Transmisor inalámbrico de dos zonas para lazo cableado y contacto magnético, serie 5800",NO,NO
+Automatización e Intrusión,5800-KIT,HONEYWELL,Kit de expansión inalámbrica: 7 contactos magnéticos y 3 detectores PIR,NO,NO
+Automatización e Intrusión,CS-DL50FVS/PLUS,EZVIZ,"Cerrojo inteligente con reconocimiento facial y venas de palma, Wi-Fi y Bluetooth, IP52",NO,NO
+Automatización e Intrusión,SCAM3DB,EPCOM,"Cámara doble lente 3 MP Wi-Fi, autoseguimiento, audio dos vías, hasta 128 GB",NO,NO
+Automatización e Intrusión,VISTA48LANT,HONEYWELL,"Panel de alarma 48 zonas con gabinete, teclado y receptor inalámbrico, 3 particiones",NO,NO
+Automatización e Intrusión,AXPRO-KIT-PIR,HIKVISION,"Kit de alarma AX PRO: hub con batería de respaldo + sensor PIR, Wi-Fi",NO,NO
+Control de Acceso,BS3APWB,SUPREMA,"BioStation 3 lector facial multitecnología, RFID (EM y MIFARE), acceso y asistencia",NO,NO
+Control de Acceso,BEP2OA,SUPREMA,"BioEntry P2 lector de huella multiformato (EM, HID Prox, MIFARE, DESFire, iCLASS)",NO,NO
+Control de Acceso,FSF2AB,SUPREMA,FaceStation F2 lector facial con detección de cubrebocas y tarjetas RFID/móviles,NO,NO
+Control de Acceso,DS-K1T342MFWX-E1,HIKVISION,"Terminal MinMoe reconocimiento facial, lector MIFARE, pantalla 4.3"", PoE/Wi-Fi, IP65",NO,NO
+Control de Acceso,DS-K1T670MWX-QR,HIKVISION,"Terminal facial MinMoe Wi-Fi, lector de QR, 6,000 rostros, pantalla 7"", nube",NO,NO
+Control de Acceso,DS-KIS604-P(C),HIKVISION,"Kit de videoportero IP PoE con llamada a app, apertura con tarjeta MIFARE, IP65",NO,NO
+Control de Acceso,DS-KH6320-WTE1,HIKVISION,"Monitor IP Wi-Fi touch 7"" para videoportero, apertura remota, audio dos vías",NO,NO
+Control de Acceso,XT-200,ACCESSPRO,"Torniquete doble de cuerpo completo, 100% acero inoxidable, alto tráfico",NO,NO
+Control de Acceso,XT-100,ACCESSPRO,"Torniquete sencillo de cuerpo completo, acero inoxidable, alto tráfico",NO,NO
+Control de Acceso,KT-GT4-LED,CAME,"Kit de barrera vehicular GT4 con brazo iluminado rojo-verde, configurable en campo",NO,NO
+Control de Acceso,1046358,FAAC,Barrera vehicular FAAC 620 hidráulica (reemplazo directo),NO,NO
+Control de Acceso,XBS-RDA-09,ACCESSPRO,Radar de seguridad Bluetooth para barreras vehiculares (reemplaza lazos magnéticos),NO,NO
+Detección de Fuego,FSP-951,NOTIFIER,"Detector de humo fotoeléctrico direccionable FlashScan, para lazo SLC de 2 hilos",NO,NO
+Detección de Fuego,FST-951,NOTIFIER,"Detector térmico direccionable de temperatura fija 57°C, protocolo FlashScan",NO,NO
+Detección de Fuego,NFS-320,NOTIFIER,"Panel de incendio inteligente direccionable ONYX, 1 lazo SLC hasta 318 puntos",NO,NO
+Detección de Fuego,NFS-320-SP,NOTIFIER,"Panel de incendio direccionable ONYX, hasta 318 dispositivos, interfaz en español",NO,NO
+Detección de Fuego,NBG-12LX,NOTIFIER,Estación manual de alarma direccionable de doble acción,NO,NO
+Detección de Fuego,FCM-1,NOTIFIER,"Módulo de control direccionable para circuito de notificación NAC 24 V, FlashScan",NO,NO
+Detección de Fuego,SD-365,FIRE-LITE,"Detector de humo fotoeléctrico direccionable LiteSpeed, base de 6"" incluida",NO,NO
+Detección de Fuego,BG-12LX,FIRE-LITE,"Estación manual de alarma direccionable de doble acción, series MS y Endurance",NO,NO
+Detección de Fuego,P2RLED,SYSTEM SENSOR,"Sirena con estrobo LED de 2 hilos, 24 Vcd, candela seleccionable, color rojo",NO,NO
+Detección de Fuego,OSI-R-SS,SYSTEM SENSOR,"Detector de humo por haz reflejado, convencional, compatible con cualquier panel",NO,NO
+Detección de Fuego,VLF-500-00-UL,XTRALIS,"Analizador de humo por aspiración VESDA, hasta 500 m² de cobertura",NO,NO
+Detección de Fuego,HPF-PS10B,HONEYWELL,"Fuente de alimentación remota para incendio, 10 A, 7 salidas NAC/auxiliares 24 Vcc",NO,NO
+"Herramientas, Ferretería y Material Eléctrico",BAT-20CD,KLEIN TOOLS,"Llave de impacto, torque 210 lb-ft, motor sin escobillas, luz de trabajo",NO,NO
+"Herramientas, Ferretería y Material Eléctrico",VDV226-110,KLEIN TOOLS,"Ponchadora/pelacables/cortacables con matraca para RJ45, RJ11 y RJ12",NO,NO
+"Herramientas, Ferretería y Material Eléctrico",VDV500-820,KLEIN TOOLS,Kit generador de tono y sonda de rastreo para cableado (RJ11/RJ45),NO,NO
+"Herramientas, Ferretería y Material Eléctrico",VDV501-770,KLEIN TOOLS,"Probador de cables de red Scout Pro Max, detecta velocidades hasta 10 Gbps",NO,NO
+"Herramientas, Ferretería y Material Eléctrico",VDV026212,KLEIN TOOLS,Kit de instalación de cable UTP con estuche (desforrador + ponchadoras),NO,NO
+"Herramientas, Ferretería y Material Eléctrico",93MCLG,KLEIN TOOLS,"Mininivel láser verde de líneas en cruz, montaje magnético, alcance 15.2 m",NO,NO
+"Herramientas, Ferretería y Material Eléctrico",IR-10K,KLEIN TOOLS,Termómetro infrarrojo de doble láser 20:1 (-40° a 650° C),NO,NO
+"Herramientas, Ferretería y Material Eléctrico",FLUKE-117,FLUKE,"Multímetro digital para electricista con detector de voltaje sin contacto, 600 V",NO,NO
+"Herramientas, Ferretería y Material Eléctrico",FLUKE-376FC,FLUKE,"Amperímetro de gancho, corriente CA 999 A, tensión CA/CC 600 V, Fluke Connect",NO,NO
+"Herramientas, Ferretería y Material Eléctrico",FLUKE-393FC,FLUKE,"Pinza amperimétrica CC/CA TRMS con iFlex, CAT III 1500 V, ideal para solar",NO,NO
+"Herramientas, Ferretería y Material Eléctrico",FLUKE-1587FC/MXBR,FLUKE,"Multímetro de aislamiento 0.01 MΩ-2 GΩ, prueba 50-1000 V, Fluke Connect",NO,NO
+"Herramientas, Ferretería y Material Eléctrico",55569,KLEIN TOOLS,Kit de 5 bolsos ultra resistentes para herramientas con mosquetones de aluminio,NO,NO
+Marketing,30224L,VICTORINOX,"Navaja multiherramienta Spirit X con 24 funciones, incluye funda de piel",NO,NO
+Marketing,3.0338.N,VICTORINOX,"Navaja multiherramienta con 37 funciones, funda de nailon y accesorio bit",NO,NO
+Marketing,30338L,VICTORINOX,"Navaja SwissTool X Plus con 37 funciones, incluye funda de piel",NO,NO
+Marketing,6.8520.17G/P,VICTORINOX,Set de 2 cuchillos Santoku Wood con mango de madera palissandro,NO,NO
+Marketing,3016-3501,VICTORINOX,"Cartera Athens de piel con compartimento para ID, tri-doblez",NO,NO
+Marketing,AEPJS3,KLEIN TOOLS,"Bocina portátil Bluetooth con imán y gancho, manos libres con micrófono",NO,NO
+Marketing,PJSFM1,KLEIN TOOLS,"Ventilador inalámbrico portátil recargable, montaje por pinza o imán, USB-C",NO,NO
+Marketing,XL50-S3017,MAGLITE,"Linterna de mano LED ultrabrillante 200 lm, 3 funciones, resistente a corrosión",NO,NO
+Marketing,ML-150LR,MAGLITE,"Linterna de mano LED recargable extra-ultrabrillante 1082 lm, modos programables",NO,NO
+Marketing,HAFR-37D,JVC,Audífonos color naranja,NO,NO
+Cableado Estructurado,PUC6004BU-ME,PANDUIT,"Bobina UTP 305 m de cobre, Cat6 mejorado 23 AWG, azul, TX6000 PanNet, Reelex",NO,NO
+Cableado Estructurado,NUC6C04BU-ME,PANDUIT,"Bobina UTP 305 m de cobre, Cat6 24 AWG, azul, NetKey, 1000 Mbps",NO,NO
+Cableado Estructurado,PUO6C04BL-CEG,PANDUIT,"Bobina UTP exterior con gel, Cat6 23 AWG, industrial para climas extremos, negro, 305 m",NO,NO
+Cableado Estructurado,PFL6X04BU-CEG,PANDUIT,"Bobina F/UTP blindado Cat6A, 10GBase-T, LSZH, azul, 305 m",NO,NO
+Cableado Estructurado,CJ688TGBU,PANDUIT,"Conector jack RJ45 estilo TG, Mini-Com, Cat6, azul",NO,NO
+Cableado Estructurado,CJ6X88TGBU,PANDUIT,"Conector jack RJ45 estilo TG, Mini-Com, Cat6A, azul",NO,NO
+Cableado Estructurado,NK688MBU,PANDUIT,"Conector jack estilo 110 (impacto), tipo keystone, Cat6, azul",NO,NO
+Cableado Estructurado,AR4PCN,PANDUIT,"Rack de 4 postes 19"", 45 UR, profundidad ajustable 23-42"", negro",NO,NO
+Cableado Estructurado,R2P,PANDUIT,"Rack de 2 postes 19"", 45 UR, aluminio, rieles roscados #12-24, negro",NO,NO
+Cableado Estructurado,WMPV45E,PANDUIT,Organizador vertical NetRunner doble (frontal y posterior) para rack de 45 UR,NO,NO
+Cableado Estructurado,MINI-ADSS-12C/4KM,LINKEDPRO,"Carrete 4 km de fibra óptica aérea Mini ADSS G.652D, monomodo 12 hilos, span 80",NO,NO
+Cableado Estructurado,OC-ADSS-24C-S100/4KM,LINKEDPRO,"Carrete 4 km de fibra óptica aérea ADSS G.652D, monomodo 24 hilos, span 100",NO,NO
+Audio y Video Profesional,NT-2.9W/V2/500,ABSEN,"Gabinete LED para videowall serie NT2.9, pitch 2.9, 500x500 mm, uso exterior",NO,NO
+Audio y Video Profesional,NT-2.6/V2/500,ABSEN,"Gabinete LED para videowall serie NT26, pitch 2.6, resolución 192x192, interior",NO,NO
+Audio y Video Profesional,VM55BU,SAMSUNG ELECTRONICS,"Pantalla profesional 55"" para videowall Full HD, bisel ultra delgado 2.3 mm, 24/7",NO,NO
+Audio y Video Profesional,VM46BU,SAMSUNG ELECTRONICS,"Pantalla profesional 46"" para videowall Full HD, bisel 2.25 mm, daisy chain DP",NO,NO
+Audio y Video Profesional,R58XUQ-L1,HORION,"Smart TV Roku QLED 58"", 4K UHD, Dolby Audio, 3 puertos HDMI, Wi-Fi",NO,NO
+Audio y Video Profesional,CA400,FANVIL,"Sistema de videoconferencia 4K todo en uno, cámara 8 MP + altavoz, salas hasta 32 m²",NO,NO
+Audio y Video Profesional,IHS3-86SA,HUAWEI,"Pantalla interactiva IdeaHub S3 86"", doble cámara 4K, HarmonyOS, Wi-Fi 6, BYOM",NO,NO
+Audio y Video Profesional,DS-D5C98RB/B(EDLA),HIKVISION,"Pantalla interactiva touch 98"" Android 13, Google Suite, cámara 8 MP, 4K",NO,NO
+Audio y Video Profesional,DS-D6055UN-DP,HIKVISION,"Pantalla LED 55"" para publicidad digital, SLIM, 500 nits, Android, Wi-Fi",NO,NO
+Audio y Video Profesional,SF-4240UC,EPCOM,"Amplificador mezclador matricial, 4 zonas, 240 W por canal, 6 entradas",NO,NO
+Audio y Video Profesional,MA1,VSSL,"Amplificador de audio streaming, 2 canales clase D 125W, AirPlay 2, Google Cast, BT",NO,NO
+Audio y Video Profesional,EVOLVE240SE-STEREO-MS-USBC/A,JABRA,"Auricular estéreo Evolve2 40SE con aislamiento de ruido, USB-C/A, busylight",NO,NO
+Industria / BMS / Robots,RUT956,TELTONIKA,"Router industrial LTE 4G, 4 puertos Ethernet, RS232/RS485, Wi-Fi, dual SIM, GNSS",NO,NO
+Industria / BMS / Robots,RUTX50,TELTONIKA,"Router industrial 5G 3.3 Gbps, dual SIM, doble banda 802.11ac Wave2",NO,NO
+Industria / BMS / Robots,RUT200,TELTONIKA,"Router industrial LTE 4G, 2 puertos Ethernet, Wi-Fi, montaje DIN, -40 a 75°C",NO,NO
+Industria / BMS / Robots,RUT951-POE,TELTONIKA,"Router PoE 4G industrial con VPN avanzadas, dual SIM, soporta eSIM, gestión remota",NO,NO
+Industria / BMS / Robots,TC500A-N,HONEYWELL,"Termostato comercial para rooftop y bomba de calor, BACnet MS/TP e IP, app móvil",NO,NO
+Industria / BMS / Robots,SPM03EDN,HONEYWELL,"Medidor de energía en red para submedición multicarga, clase ANSI C12.20 0.2",NO,NO
+Industria / BMS / Robots,HVFD3D3A0150G100C,HONEYWELL,"Variador de frecuencia SmartVFD para HVAC, 15 HP, 208/230 Vca, BACnet/Modbus",NO,NO
+Industria / BMS / Robots,CT-PF-12,HONEYWELL,"Transformador de corriente Rogowski, sonda flexible 12"", rango 5-1500 A",NO,NO
+Industria / BMS / Robots,201-528-100-WH,INNCOM,"Termostato de gestión energética e7 EMS, BACnet MS/TP y Wi-Fi, sensor PIR",NO,NO
+Industria / BMS / Robots,FS20X-211-21-2,HONEYWELL,"Detector de flama multiespectro UV y doble IR/visible, alcance >60 m, 4-20 mA",NO,NO
+Industria / BMS / Robots,L3RFID,SUNMI,"Terminal móvil inteligente, RFID UHF, NFC, IP68, Android 14, 6 GB RAM",NO,NO
+Industria / BMS / Robots,N280416G100,HOFFMAN,"Aire acondicionado compacto para gabinetes telecom, 4000 BTU, 115 Vca, acero",NO,NO

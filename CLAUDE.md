@@ -1,141 +1,79 @@
 # CLAUDE.md — Prompt Maestro y Guía de Arquitectura para Claude Code
 
-> **Para Claude Code:** Al abrir este repositorio, tu misión es asistir al administrador de BITMOVIL a dejar el **Catálogo Web Interactivo** 100% operativo, sincronizado con su **MCP de Syscom** y desplegado en el subdominio de `bitmovil.mx`.
-> Sigue las directrices, scripts y configuraciones descritas en este documento.
+> **Para Claude Code / AI Agents:** Al abrir este repositorio, tu misión es asistir al equipo de BITMOVIL a mantener, expandir o desplegar el **Catálogo Web Interactivo B2B (V4)**.
+> Sigue las directrices, scripts y configuraciones de arquitectura segura descritas en este documento.
 
 ---
 
-## 1. Visión General del Proyecto
-Este proyecto es el **Catálogo y Portafolio de Productos Digital de BITMOVIL**, diseñado para clientes finales y corporativos:
-- **Tecnología:** Aplicación web estática ultra-ligera (HTML5, CSS3 moderno, Vanilla JS). No requiere frameworks pesados ni dependencias de backend obligatorias; puede alojarse en cualquier servidor web o CDN en 1 minuto.
-- **Base de Datos:** El archivo maestro es `Portafolio_Articulos_por_Linea.xlsx`. El script `actualizar_web.py` procesa el Excel y genera `web/datos.js` y `web/datos.json`.
-- **Evasión de CORS:** Los datos se inyectan mediante `datos.js` como variable global `catalogoData` para que el catálogo funcione tanto abriéndolo directamente en local (`file:///`) como en un servidor web (`https://catalogo.bitmovil.mx`).
-- **Recursos Locales:** 
-  - Fotografías: `web/imagenes/{No_de_Parte_Normalizado}.[png|jpg|avif|webp]`
-  - Fichas Técnicas PDF: `web/fichas_tecnicas/{No_de_Parte_Normalizado}.pdf`
-  - *Regla de nombres:* Los números de parte que contengan diagonales `/` se normalizan sustituyendo `/` por guión medio `-` (ej. `DS-MCW409/SE` -> `DS-MCW409-SE`).
+## 1. Arquitectura V4 (Producción B2B)
+
+El catálogo ha evolucionado a una aplicación B2B segura, optimizada para SEO y con un Asistente Experto (RAG Seguro):
+
+- **Frontend:** Vanilla JS (`app.js`, `cart.js`, `chat.js`), modularizado. Búsqueda multi-token con sinónimos y sistema de scoring. Cotizador exportable a CSV y WhatsApp. El enrutamiento se maneja vía Hash (SPA).
+- **Backend (Proxy Seguro):** Las llamadas al LLM (Anthropic) pasan por un proxy PHP en `web/api/chat.php`. Esto oculta la API Key, previene el abuso de tokens, aplica rate-limiting (HMAC-SHA256 por IP) y mantiene el Prompt Maestro en el servidor.
+- **RAG Seguro:** El cliente no envía el catálogo al LLM. El cliente realiza una búsqueda local y envía al PHP los mejores 5 `product_ids`. El PHP valida estos IDs contra `datos.json`, obtiene las descripciones y construye el contexto, impidiendo inyecciones de contexto arbitrario.
+- **Generación Estática y SEO:** `actualizar_web.py` lee el Excel maestro y genera archivos estáticos `/p/{modelo}.html`. Aplica reglas Anti-Thin Content: si el producto no tiene foto ni ficha, se le asigna `noindex` y se excluye del `sitemap.xml`. También inyecta *cache-busting* idempotente (`?v=hash`) en todos los assets de `index.html`.
+- **Integración Syscom (OAuth2):** `sync_mcp_syscom.py` utiliza el flujo `client_credentials` oficial de la API de Syscom para descargas masivas de imágenes y fichas técnicas detectando el MIME type real.
 
 ---
 
-## 2. Tareas Clave para Claude Code (Guía de Ejecución Rápida)
+## 2. Guía de Configuración y Secretos
 
-Cuando el usuario te pida sincronizar o configurar el proyecto, ejecuta estos pasos:
+### A. Archivos de Entorno (.env)
+El sistema utiliza dos archivos separados para mayor seguridad:
 
-### Tarea A: Conectar el MCP de Syscom del Administrador
-1. Verifica el archivo `config.env` en la raíz de `PORTAFOLIO_WEB/`.
-2. Solicita al administrador el **Endpoint** y **API Key/Token** de su servidor MCP / servicio de Syscom y actualiza `config.env`:
+1. `config.env` (Raíz del proyecto): Usado por los scripts de Python.
    ```env
-   SYSCOM_MCP_ENDPOINT=https://tu-mcp-syscom.bitmovil.mx/api/v1
-   SYSCOM_MCP_API_KEY=tu_token_aqui
-   DOWNLOAD_IMAGES=true
-   DOWNLOAD_DATASHEETS=true
+   SYSCOM_CLIENT_ID=tu_client_id_oauth
+   SYSCOM_CLIENT_SECRET=tu_client_secret_oauth
    ```
-3. Ejecuta la sincronización masiva con:
-   ```bash
-   python sync_mcp_syscom.py
+
+2. `secrets.env` (Producción PHP): Contiene la API Key de Anthropic. **CRÍTICO:** En producción, este archivo debe alojarse fuera de `public_html` (ej. `~/secrets/bitmovil.env`) o estar estrictamente protegido por `.htaccess`.
+   ```env
+   ANTHROPIC_API_KEY=sk-ant-api03-...
+   LLM_MODEL=claude-haiku-4-5-20251001
+   MAX_TOKENS=800
    ```
-   *Nota: Puedes hacer una prueba previa con `python sync_mcp_syscom.py --dry-run`.*
-4. El script descargará automáticamente las fotos oficiales y fichas técnicas PDF en `web/imagenes/` y `web/fichas_tecnicas/`, e inmediatamente correrá `actualizar_web.py` para refrescar `datos.js`.
+   *Nota: Se recomienda configurar la ruta real de `secrets.env` modificando `web/api/chat.php`.*
 
----
-
-### Tarea B: Conectar el LLM para el Asistente Experto en Cableado
-En `web/llm_config.js` reside la configuración del widget de chat. 
-Si el administrador cuenta con una API de LLM (OpenAI, Anthropic, Ollama o microservicio propio), configúrala en:
-```javascript
-window.BITMOVIL_LLM_CONFIG = {
-    enabled: true, // Cambiar a true cuando se conecte el LLM
-    endpoint: "https://api.tu-servidor.com/v1/chat/completions",
-    apiKey: "Bearer TU_TOKEN",
-    model: "claude-3-5-sonnet-20241022", // o el modelo configurado
-};
-```
-*(Si `enabled: false`, el chat funciona en **Modo Local Inteligente**, diagnosticando problemas comunes de cableado y filtrando productos del catálogo sin costo de API).*
-
----
-
-## 3. Prompt de Entrenamiento del Asistente Experto en Cableado Estructurado
-Este es el **System Prompt oficial** que debe utilizarse cuando se conecte el LLM al widget de chat o en cualquier backend de IA de BITMOVIL:
-
-```text
-Eres el "Asesor Técnico Especialista de BITMOVIL", un ingeniero consultor experto en:
-1. Cableado Estructurado (Cobre Cat5e, Cat6, Cat6A, Cat7 y Fibra Óptica Monomodo/Multimodo).
-2. Infraestructura de Redes y Telecomunicaciones (Racks, Patch Panels, PDU, Switches PoE, Routers Fortinet/Cisco).
-3. Sistemas de Seguridad Electrónica (CCTV IP, Control de Acceso, Radiocomunicación).
-
-Tu misión:
-- Recibir la problemática o requerimiento planteado por el cliente en lenguaje natural (ej. "Tengo una bodega de 120 metros y las cámaras se desconectan", "Requiero certificar 40 nodos de voz y datos").
-- Diagnosticar técnicamente la necesidad aplicando estándares y buenas prácticas internacionales (TIA/EIA-568, ISO/IEC 11801):
-  * Regla de los 90 metros en cobre horizontal + 10m de patch cords.
-  * Uso de cable 100% Cobre vs Aleación (CCA) — BITMOVIL solo promueve 100% cobre para certificación y PoE.
-  * Chaqueta adecuada: CMR (Riser interior), CMP (Plenum), CMX o con protección UV y gel antihumedad para exteriores/tubería subterránea.
-  * Presupuesto de potencia PoE (802.3af 15.4W, 802.3at PoE+ 30W, 802.3bt Hi-PoE 60-90W).
-  * Canalización (charola tipo malla charofil, tubería conduit pared gruesa o delgada).
-- Proponer una arquitectura de solución clara en 3 pasos:
-  1. Diagnóstico / Criterio Técnico.
-  2. Lista sugerida de componentes (Cable, conectores, patch panels, organizadores, switch, cámaras).
-  3. Invitación a contactar a los ingenieros de BITMOVIL para levantamiento en sitio o cotización formal.
-- Tono: Altamente profesional, empático, consultivo, conciso y orientado a solucionar sin tecnicismos innecesarios que confundan al cliente.
+### B. Pruebas y Validación (Node.js)
+El algoritmo de búsqueda y scoring está cubierto por pruebas unitarias al 100%.
+Para ejecutarlas:
+```bash
+node tests/test_search.js
 ```
 
 ---
 
-## 4. Guía de Despliegue en Subdominio (`catalogo.bitmovil.mx`)
-
-El contenido a publicar es **únicamente el contenido de la carpeta `web/`**:
-```text
-web/
-├── index.html          <-- Página principal con buscador y chat
-├── datos.js            <-- Base de datos de productos
-├── llm_config.js       <-- Configuración del chat LLM
-├── imagenes/           <-- Fotos de productos
-└── fichas_tecnicas/    <-- PDFs de fichas técnicas
-```
-
-### Opciones de Despliegue:
-
-#### Opción 1: cPanel / Apache (Hosting tradicional de Bitmovil)
-1. En cPanel, ir a **Subdominios** y crear `catalogo.bitmovil.mx`.
-2. Definir la raíz de documentos (ej. `public_html/catalogo`).
-3. Subir el contenido de la carpeta `web/` a esa ruta.
-4. El archivo `.htaccess` incluido se encargará de habilitar compresión Gzip y caché.
-
-#### Opción 2: Nginx (VPS o Servidor Propio)
-```nginx
-server {
-    listen 80;
-    server_name catalogo.bitmovil.mx;
-    root /var/www/catalogo_bitmovil/web;
-    index index.html;
-
-    location / {
-        try_files $uri $uri/ /index.html;
-    }
-
-    # Cache para imágenes y PDFs
-    location ~* \.(jpg|jpeg|png|avif|webp|pdf)$ {
-        expires 30d;
-        add_header Cache-Control "public, no-transform";
-    }
-}
-```
-
-#### Opción 3: Vercel / Cloudflare Pages / Netlify (Gratuito y Ultra Rápido)
-1. Conectar el repositorio de Git o subir la carpeta `web/`.
-2. Root directory: `web/` (o la raíz si se publica directo).
-3. Añadir el dominio personalizado `catalogo.bitmovil.mx` en el panel de Cloudflare o Vercel.
-
----
-
-## 5. Estructura de Comandos Útiles
+## 3. Comandos Útiles
 
 ```bash
-# Regenerar la base de datos web a partir del Excel:
-python actualizar_web.py
-
-# Sincronizar imágenes y fichas técnicas con el MCP de Syscom:
+# 1. Sincronizar catálogo con API Syscom (Descarga fotos y fichas)
 python sync_mcp_syscom.py
 
-# Modo simulador (dry-run) sin descargar archivos:
-python sync_mcp_syscom.py --dry-run
+# 2. Generar base de datos web, páginas SEO estáticas y aplicar cache-busting
+python actualizar_web.py
+
+# 3. Correr pruebas unitarias del buscador JS
+node tests/test_search.js
 ```
+
+---
+
+## 4. Guía de Despliegue en Servidor (cPanel / Apache)
+
+1. En cPanel, configura un subdominio (ej. `catalogo.bitmovil.mx`) apuntando a una carpeta (ej. `public_html/catalogo`).
+2. Sube **únicamente** el contenido de la carpeta `web/` a esa ruta.
+3. El archivo `web/.htaccess` incluido redirigirá tráfico, habilitará caché para recursos estáticos y denegará el acceso web a las carpetas `api/cache` y el archivo `api/secrets.env` (si decides dejar este último dentro de la carpeta `web/api/`).
+4. **Mejor Práctica de Seguridad:** Ubica `secrets.env` en `~/secrets/bitmovil.env` (un nivel arriba de `public_html`), edita `web/api/chat.php` para apuntar a esa ruta absoluta y ubica la carpeta `cache/` también fuera del acceso web.
+5. Ejecuta `actualizar_web.py` localmente antes de subir los cambios para asegurar que el `sitemap.xml`, `datos.js`, `datos.json` y los HTML estáticos estén actualizados y con su *hash* correspondiente.
+
+---
+
+## 5. El Asistente Experto en Cableado (Prompt en PHP)
+
+El **System Prompt oficial** ya no reside en JavaScript; está integrado en `web/api/chat.php`. 
+Este sistema garantiza que el modelo `claude-haiku-4-5-20251001` asuma el rol de **"Asesor Técnico Especialista de BITMOVIL"**. Sus principales directrices, forzadas desde el backend, incluyen:
+- Recomendar **solo cobre 100%** (no CCA) y respetar la regla de 90m + 10m.
+- Evaluar uso exterior, chaquetas UV, presupuestos PoE y canalizaciones adecuadas.
+- Recomendar **estrictamente** los productos reales disponibles en el catálogo de Bitmovil basándose en los `product_ids` enviados por la búsqueda local del cliente.
